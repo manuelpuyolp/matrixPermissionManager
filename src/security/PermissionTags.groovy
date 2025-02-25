@@ -1,5 +1,7 @@
 package security
 
+// There is a tag for every permission currently on Jenkins
+// When modifying permissions on a job it's necessary to provide a list containing the desired tags to modify
 public enum PermissionTags {
     CREDENTIALS_CREATE,
     CREDENTIALS_DELETE,

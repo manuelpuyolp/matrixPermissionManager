@@ -1,5 +1,7 @@
 import security.*
-
+// A set of helper calls that provide functionality to interact with the Jenkins API, like downloading job configurations or uploading the edited ones.
+// As well as dealing with the crumb issuer for any requests
+// They are to be used by the "permissions.groovy" script
 
 @groovy.transform.Field
 String libPath = "${JENKINS_HOME}/matrixRoleManager"

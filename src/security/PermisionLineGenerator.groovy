@@ -2,6 +2,8 @@ package security
 
 import security.PermissionTags;
 
+// This class is meant for parsing PermissionTags into the node tag the XML file can understand, as well as specifying if dealing with a user or a group
+// The PermissionsModifier class
 class PermisionLineGenerator {
 
     public static def getPermissionStringByEnum(PermissionTags permissions) {
