@@ -8,19 +8,18 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags) {
     util.updateJobConfig(jobName, result)
 }
 
-def addAll(String jobName, String user) {
-    PermissionTags[] allTags = []
-    for (PermissionTags tag in PermissionTags.values()) {
-        allTags.add(tag)
-    }
-    permissions.add(jobName, user, allTags)
-}
 
 def remove(String jobName, String user_to_modify, PermissionTags[] tags) {
     def fileContent = util.getJobConfig(jobName)
     def result = PermisionsModifier.removePermissions(fileContent, user_to_modify, tags);
 
     util.updateJobConfig(jobName, result)
+}
+
+
+def addAll(String jobName, String user) {
+    PermissionTags[] allTags = PermissionTags.values()
+    permissions.add(jobName, user, allTags)
 }
 
 def removeAll(String jobName, String user) {
