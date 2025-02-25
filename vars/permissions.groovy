@@ -1,3 +1,4 @@
+@groovy.transform.Field
 String locoq = "loco"
 
 public def hello() {
