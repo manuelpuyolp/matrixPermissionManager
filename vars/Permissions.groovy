@@ -1,7 +1,7 @@
-def hello(def text) {
-    println("Hello ${text}")
+public def hello() {
+    println("Hello ")
 }
 
-def bye(def string) {
-    println("Bye ${string}")
+public def bye() {
+    println("Bye ")
 }
