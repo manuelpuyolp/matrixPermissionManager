@@ -5,12 +5,12 @@ import groovy.xml.*
 
 class PermisionsModifier {
 
-    static def addPermissions(String text, String user, PermissionTags[] permisions) {
+    static def addPermissions(String text, String user, PermissionTags[] permisions, boolean isGroup) {
         def parser = new XmlParser(true, true, true)
         def project = parser.parseText(text);
 
         for (PermissionTags permisionTag in permisions) {
-            addPermission(project, user, permisionTag)
+            addPermission(project, user, permisionTag, isGroup)
         }
 
         return XMLmanipulation.nodeToString(project)
@@ -129,8 +129,12 @@ class PermisionsModifier {
     }
 
     static def addPermission(def root, def user, PermissionTags permission) {
+        addPermission(root, user, permission, false)
+    }
+
+    static def addPermission(def root, def user, PermissionTags permission, boolean group) {
         def permissionNode = getPermissionNode(root)
-        def permissionString = PermisionLineGenerator.getPermissionStringByEnum(permission)
+        def permissionString = PermisionLineGenerator.getPermissionStringByEnum(permission, group)
         def fullString = "${permissionString}:${user}";
         if (hasPermission(permissionNode, fullString)) {
             return
