@@ -1,3 +1,6 @@
+import security.*
+
+
 @groovy.transform.Field
 String libPath = "${JENKINS_HOME}/matrixRoleManager"
 
