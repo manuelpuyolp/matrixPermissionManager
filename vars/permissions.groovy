@@ -1,7 +1,7 @@
 import security.PermisionsModifier
 import security.PermissionTags
 
-def add(String jobName, String user_to_modify, PermissionTags[] tags) {
+def add(String jobName, String user_to_modify, def tags) {
     def fileContent = util.getJobConfig(jobName)
     def result = PermisionsModifier.addPermissions(fileContent, user_to_modify, tags);
 
