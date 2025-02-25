@@ -2,7 +2,7 @@
 String locoq = "loco"
 
 public def hello() {
-    println(util.mec())
+    println(locoq)
 }
 
 public def bye() {
