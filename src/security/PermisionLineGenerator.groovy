@@ -32,6 +32,9 @@ class PermisionLineGenerator {
             case PermissionTags.JOB_CANCEL:
                 return "${type}hudson.model.Item.Cancel"
                 break;
+            case PermissionTags.JOB_CREATE:
+                return "${type}hudson.model.Item.Create"
+                break;
             case PermissionTags.JOB_CONFIGURE:
                 return "${type}hudson.model.Item.Configure"
                 break;
@@ -58,6 +61,18 @@ class PermisionLineGenerator {
                 break;
             case PermissionTags.RUN_UPDATE:
                 return "${type}hudson.model.Run.Update"
+                break;
+            case PermissionTags.VIEW_READ:
+                return "${type}hudson.model.View.Read"
+                break;
+            case PermissionTags.VIEW_DELETE:
+                return "${type}hudson.model.View.Delete"
+                break;
+            case PermissionTags.VIEW_CONFIGURE:
+                return "${type}hudson.model.View.Configure"
+                break;
+            case PermissionTags.VIEW_CREATE:
+                return "${type}hudson.model.View.Create"
                 break;
             case PermissionTags.SCM_TAG:
                 return "${type}hudson.scm.SCM.Tag"

@@ -10,6 +10,7 @@ public enum PermissionTags {
     JOB_CANCEL,
     JOB_CONFIGURE,
     JOB_DELETE,
+    JOB_CREATE,
     JOB_READ,
     JOB_DISCOVER,
     JOB_MOVE,
@@ -17,5 +18,9 @@ public enum PermissionTags {
     RUN_DELETE,
     RUN_REPLAY,
     RUN_UPDATE,
+    VIEW_READ,
+    VIEW_DELETE,
+    VIEW_CREATE,
+    VIEW_CONFIGURE,
     SCM_TAG
 }
