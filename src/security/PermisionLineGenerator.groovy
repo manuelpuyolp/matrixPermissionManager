@@ -4,6 +4,10 @@ import security.PermissionTags;
 
 class PermisionLineGenerator {
 
+    public static def getPermissionStringByEnum(PermissionTags permissions) {
+        return getPermissionStringByEnum(permissions, false)
+    }
+
     public static def getPermissionStringByEnum(PermissionTags permission, boolean isGroup) {
         String type = isGroup ? "GROUP:" : "USER:"
         switch (permission) {
