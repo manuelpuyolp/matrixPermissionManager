@@ -10,6 +10,26 @@ String downloadPath = "${libPath}/permissions"
 @groovy.transform.Field
 String logInCredPath = "${libPath}/logInCredentials"
 
+@groovy.transform.Field
+String userCredPath = "${logInCredPath}/user.txt"
+
+@groovy.transform.Field
+String passwordCredPath = "${logInCredPath}/pass.txt"
+
+def updateJobConfig(String jobName, String newFileText) {
+    def user = getUser()
+    def password = getPassword()
+    def download_Path = downloadPath
+    def file_Name = "config.xml"
+    def full_File_Path = "${download_Path}/${file_Name}"
+
+    File newFile = new File("${full_File_Path}")
+    newFile.write("${newFileText}")
+    def crumb = getCrumb(user, password, download_Path);
+    def correctPath = URLhandler.getRegularJobString(jobName)
+    def url = "${JENKINS_URL}${correctPath}config.xml"
+    sh "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
+}
 
 def downloadFile(String user, String password, String jobName, String download_Path, String full_File_Path) {
     sh "mkdir -p ${download_Path}"
@@ -39,15 +59,13 @@ def printJob(String jobName) {
 }
 
 def getUser() {
-    def loginPath = logInCredPath
-    def file = new File("${loginPath}/user.txt")
+    def file = new File(userCredPath)
     def fileContent = file.getText()
     return fileContent.trim()
 }
 
 def getPassword() {
-    def loginPath = logInCredPath
-    def file = new File("${loginPath}/pass.txt")
+    def file = new File(passwordCredPath)
     def fileContent = file.getText()
     return fileContent.trim()
 }
