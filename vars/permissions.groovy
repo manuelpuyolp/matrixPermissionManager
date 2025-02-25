@@ -16,7 +16,7 @@ def addGroup(String jobName, String user_to_modify, PermissionTags[] tags) {
     add(jobName, user_to_modify, tags, true)
 }
 
-def removeUser(String jobName, String user_to_modify, PermissionTags[] tags) {
+def remove(String jobName, String user_to_modify, PermissionTags[] tags) {
     def fileContent = util.getJobConfig(jobName)
     def result = PermisionsModifier.removePermissions(fileContent, user_to_modify, tags);
 
@@ -29,7 +29,12 @@ def addAllUser(String jobName, String user) {
     addUser(jobName, user, allTags)
 }
 
-def removeAllUser(String jobName, String user) {
+def addAllGroup(String jobName, String user) {
     PermissionTags[] allTags = PermissionTags.values()
-    removeUser(jobName, user, allTags)
+    addGroup(jobName, user, allTags)
+}
+
+def removeAll(String jobName, String user) {
+    PermissionTags[] allTags = PermissionTags.values()
+    remove(jobName, user, allTags)
 }
