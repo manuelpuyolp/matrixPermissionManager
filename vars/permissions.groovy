@@ -1,5 +1,5 @@
 public def hello() {
-    println("Hello ")
+    println(util.mec())
 }
 
 public def bye() {
