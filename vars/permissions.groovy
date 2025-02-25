@@ -19,10 +19,10 @@ def remove(String jobName, String user_to_modify, PermissionTags[] tags) {
 
 def addAll(String jobName, String user) {
     PermissionTags[] allTags = PermissionTags.values()
-    permissions.add(jobName, user, allTags)
+    add(jobName, user, allTags)
 }
 
 def removeAll(String jobName, String user) {
     PermissionTags[] allTags = PermissionTags.values()
-    permissions.remove(jobName, user, allTags)
+    remove(jobName, user, allTags)
 }
