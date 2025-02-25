@@ -1,5 +1,11 @@
+@groovy.transform.Field
 String libPath = "${JENKINS_HOME}/matrixRoleManager"
+
+@groovy.transform.Field
 String downloadPath = "${libPath}/permissions"
+
+@groovy.transform.Field
+String logInCredPath = "${libPath}/logInCredentials"
 
 
 def downloadFile(String user, String password, String jobName, String download_Path, String full_File_Path) {
@@ -22,4 +28,23 @@ def getJobConfig(String jobName) {
     def file = new File("${full_File_Path}")
     def fileContent = file.getText()
     return fileContent
+}
+
+def printJob(String jobName) {
+    String text = getJobConfig(jobName)
+    println(text)
+}
+
+def getUser() {
+    def loginPath = logInCredPath
+    def file = new File("${loginPath}/user.txt")
+    def fileContent = file.getText()
+    return fileContent.trim()
+}
+
+def getPassword() {
+    def loginPath = logInCredPath
+    def file = new File("${loginPath}/pass.txt")
+    def fileContent = file.getText()
+    return fileContent.trim()
 }
