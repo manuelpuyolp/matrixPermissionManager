@@ -79,6 +79,7 @@ class PermisionsModifier {
     }
 
     static def compareTags(String tag1, String tag2) {
+        if (tag1 == null || tag2 == null) return false
         String[] tag1Parts = tag1.split(":")
         String[] tag2Parts = tag2.split(":")
         if (tag1Parts.size() != 3 || tag2Parts.size() != 3) return false
