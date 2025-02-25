@@ -1,7 +1,7 @@
-def hello(String text) {
+def hello(def text) {
     println("Hello ${text}")
 }
 
-def bye(String string) {
+def bye(def string) {
     println("Bye ${string}")
 }
