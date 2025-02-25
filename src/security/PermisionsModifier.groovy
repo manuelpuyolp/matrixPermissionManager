@@ -78,12 +78,20 @@ class PermisionsModifier {
         }
     }
 
+    static def compareTags(String tag1, String tag2) {
+        String[] tag1Parts = tag1.split(":")
+        String[] tag2Parts = tag2.split(":")
+        if (tag1Parts.size() != 3 || tag2Parts.size() != 3) return false
+        if (tag1Parts[1] == tag2Parts[1] && tag1Parts[2] == tag2Parts[2]) return true
+        return false
+    }
+
     static def hasPermission(def permissionNode, String tag) {
         if (permissionNode.children() == null) {
             return false
         }
         for (def nodes in permissionNode.children()) {
-            if (nodes.value()[0] == tag) {
+            if (compareTags(nodes.value()[0], tag)) {
                 return true
             }
         }
@@ -92,7 +100,7 @@ class PermisionsModifier {
 
     static def getNodeWithPermission(def permissionNode, String tag) {
         for (def nodes in permissionNode.children()) {
-            if (nodes.value()[0] == tag) {
+            if (compareTags(nodes.value()[0], tag)) {
                 return nodes
             }
         }
