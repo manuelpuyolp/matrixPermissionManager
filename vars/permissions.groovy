@@ -5,6 +5,10 @@ import security.PermissionTags
 //IMPORTANT: When giving a job name that is within a folder or several, the path to the job should be expressed as follows
 // "main_folder/sub_folder_1/sub_folder_2/jobName" with each parent folder separated by a forward slash in a Hierarchical order.
 
+def call() {
+    return this
+}
+
 // This method is called via the wrapper methods "addUser" and "addGroup" that perform extremelly similar purposes
 def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean isGroup) {
     def fileContent = util.getJobConfig(jobName)
