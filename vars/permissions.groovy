@@ -20,9 +20,16 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
 // Given an item name from the Jenkins Server, either folder or job, a user to which assign the permissions and a list of the permissions desired,
 // will allow the given user the clearence needed to perform said actions in the job or folder
 
+//def addUser(String jobName, String user_to_modify, PermissionTags[] tags) {
+//    add(jobName, user_to_modify, tags, false)
+//}
+
 def addUser(String jobName, String user_to_modify, PermissionTags[] tags) {
-    add(jobName, user_to_modify, tags, false)
+    def modifier = new security.PermisionsModifier()
+    return modifier.addUserToFolder(folderName, userName, permissionsList)
 }
+
+
 
 // The same functionality of "addUser" but applied to groups, as the difference needs to be specified to the API.
 // Will allow a group to performs the given actions on the selected job or folder
@@ -58,3 +65,4 @@ def removeAll(String jobName, String user) {
     remove(jobName, user, allTags)
 }
 
+return this
