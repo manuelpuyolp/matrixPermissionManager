@@ -24,7 +24,7 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
 //    add(jobName, user_to_modify, tags, false)
 //}
 
-def addUser(String jobName, String user_to_modify, PermissionTags[] tags) {
+def addUser(String folderName, String userName, List<String> permissionsList) {
     def modifier = new security.PermisionsModifier()
     return modifier.addUserToFolder(folderName, userName, permissionsList)
 }
