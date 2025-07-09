@@ -6,7 +6,7 @@ import security.PermissionTags
 // "main_folder/sub_folder_1/sub_folder_2/jobName" with each parent folder separated by a forward slash in a Hierarchical order.
 
 def call() {
-    return new PermisionsModifier()
+    return this
 }
 
 
