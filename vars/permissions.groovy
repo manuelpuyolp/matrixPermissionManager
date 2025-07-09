@@ -10,7 +10,7 @@ def call() {
 }
 
 
-def addUser() {
+def addUserDos() {
     println "========================addUser 2======================================="
     def jobName = "utiles"
     def userName = "user-mant"
