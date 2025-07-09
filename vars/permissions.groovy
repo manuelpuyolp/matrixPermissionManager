@@ -6,8 +6,20 @@ import security.PermissionTags
 // "main_folder/sub_folder_1/sub_folder_2/jobName" with each parent folder separated by a forward slash in a Hierarchical order.
 
 def call() {
-    return this
+    return new PermisionsModifier()
 }
+
+
+def addUser(String jobName, String userName, List<String> permsAsStrings) {
+    println "========================addUser 1======================================="
+    // convierte cada string al enum
+    PermissionTags[] tags = permsAsStrings.collect { full ->
+        def name = full.split('\\.')[-1]
+        PermissionTags.valueOf(name)
+    } as PermissionTags[]
+    // reutiliza tu método existente
+    add(jobName, userName, tags, false)
+    }
 
 // This method is called via the wrapper methods "addUser" and "addGroup" that perform extremelly similar purposes
 def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean isGroup) {
@@ -21,6 +33,7 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
 // will allow the given user the clearence needed to perform said actions in the job or folder
 
 def addUser(String folderName, String userName, PermissionTags[] tags) {
+    println "========================addUser 2======================================="
     def modifier = new security.PermisionsModifier()
     return modifier.add(folderName, userName, tags, false)
 }
@@ -32,7 +45,7 @@ return this
 //     def tags = permissionsList.collect { 
 //         PermissionTags.valueOf(it.split("\\.")[-1]) 
 //     } as PermissionTags[]
-//
+// 
 //     add(jobName, user_to_modify, tags, false)
 // }
 
