@@ -11,7 +11,7 @@ def call() {
 
 
 def addUserDos() {
-    println "======================== addUserDos 2======================================="
+    println "======================== addUserDos======================================="
     String jobName = "utiles"
     String userName = "user-mant"  
     PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE] 
@@ -31,9 +31,11 @@ def addUser(String jobName, String userName, List<String> permsAsStrings) {
 
 // This method is called via the wrapper methods "addUser" and "addGroup" that perform extremelly similar purposes
 def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean isGroup) {
+    println "======================== add ======================================="
     def fileContent = util.getJobConfig(jobName)
+    println "======================== add 1======================================="
     def result = PermisionsModifier.addPermissions(fileContent, user_to_modify, tags, isGroup);
-
+    println "======================== add 2======================================="
     util.updateJobConfig(jobName, result)
 }
 

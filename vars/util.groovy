@@ -34,6 +34,7 @@ def updateJobConfig(String jobName, String newFileText) {
 }
 
 def downloadFile(String user, String password, String jobName, String download_Path, String full_File_Path) {
+    println "========================downloadFile======================================="
     sh "mkdir -p ${download_Path}"
     sh "touch ${full_File_Path}"
     sh "rm -rf ${download_Path}/*"
@@ -47,6 +48,7 @@ def downloadFile(String user, String password, String jobName, String download_P
 }
 
 def getJobConfig(String jobName) {
+    println "==============================getJobConfig======================================="
     def user = getUser()
     def password = getPassword()
     def download_Path = downloadPath
@@ -54,8 +56,11 @@ def getJobConfig(String jobName) {
     def full_File_Path = "${download_Path}/${file_Name}"
 
     downloadFile(user, password, jobName, download_Path,full_File_Path)
+    println "============================getJobConfig1======================================="
     def file = new File("${full_File_Path}")
+    println "============================getJobConfig2======================================="
     def fileContent = file.getText()
+    println "============================getJobConfig3======================================="
     return fileContent
 }
 
