@@ -40,6 +40,10 @@ def downloadFile(String user, String password, String jobName, String download_P
     def correctPath = URLhandler.getRegularJobString(jobName)
     def url = "${JENKINS_URL}${correctPath}config.xml"
     sh "curl -o ${full_File_Path} -X GET -u ${user}:${password} ${url}"
+    sh "chmod 777 ${full_File_Path}"
+    sh "ls -l ${download_Path}"
+    sh "cat ${full_File_Path}"
+
 }
 
 def getJobConfig(String jobName) {
