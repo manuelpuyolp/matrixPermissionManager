@@ -10,6 +10,15 @@ def call() {
 }
 
 
+def addUser() {
+    println "========================addUser 2======================================="
+    def jobName = "utiles"
+    def userName = "user-mant"
+    def PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE]
+
+    add(jobName, userName, tags, false)
+}
+
 def addUser(String jobName, String userName, List<String> permsAsStrings) {
     println "========================addUser 1======================================="
     // convierte cada string al enum
@@ -33,7 +42,7 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
 // will allow the given user the clearence needed to perform said actions in the job or folder
 
 def addUser(String folderName, String userName, PermissionTags[] tags) {
-    println "========================addUser 2======================================="
+    println "========================addUser 3======================================="
     def modifier = new security.PermisionsModifier()
     return modifier.add(folderName, userName, tags, false)
 }
