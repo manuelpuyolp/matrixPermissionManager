@@ -20,14 +20,21 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
 // Given an item name from the Jenkins Server, either folder or job, a user to which assign the permissions and a list of the permissions desired,
 // will allow the given user the clearence needed to perform said actions in the job or folder
 
-def addUser(String jobName, String user_to_modify, List<String> permissionsList) {
-    // Convertir strings a PermissionTags
-    def tags = permissionsList.collect { 
-        PermissionTags.valueOf(it.split("\\.")[-1]) 
-    } as PermissionTags[]
-
-    add(jobName, user_to_modify, tags, false)
+def addUser(String folderName, String userName, PermissionTags[] tags) {
+    def modifier = new security.PermisionsModifier()
+    return modifier.add(folderName, userName, tags, false)
 }
+
+return this
+
+// def addUser(String jobName, String user_to_modify, List<String> permissionsList) {
+//     // Convertir strings a PermissionTags
+//     def tags = permissionsList.collect { 
+//         PermissionTags.valueOf(it.split("\\.")[-1]) 
+//     } as PermissionTags[]
+//
+//     add(jobName, user_to_modify, tags, false)
+// }
 
 // def addUser(String jobName, String user_to_modify, PermissionTags[] tags) {
 //     add(jobName, user_to_modify, tags, false)

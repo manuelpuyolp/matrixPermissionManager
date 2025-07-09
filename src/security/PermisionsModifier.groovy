@@ -3,7 +3,7 @@ package security
 import security.XMLmanipulation
 import groovy.xml.*
 
-class PermisionsModifier implements Serializable{
+public class PermisionsModifier implements Serializable{
 
     static def addPermissions(String text, String user, PermissionTags[] permisions, boolean isGroup) {
         def parser = new XmlParser(true, true, true)

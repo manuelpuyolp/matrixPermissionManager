@@ -1,6 +1,6 @@
 package security
 
-class URLhandler {
+public class URLhandler {
     public static def getCreateJobString(String jobName) {
         def result = ""
         def path = jobName.split("/")
