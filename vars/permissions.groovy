@@ -19,7 +19,7 @@ def addUser(String jobName, String userName, List<String> permsAsStrings) {
     } as PermissionTags[]
     // reutiliza tu método existente
     add(jobName, userName, tags, false)
-    }
+}
 
 // This method is called via the wrapper methods "addUser" and "addGroup" that perform extremelly similar purposes
 def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean isGroup) {
