@@ -11,7 +11,7 @@ def call() {
 
 
 def addUserDos() {
-    println "======================== addUserDos ======================================="
+    println "======================== addUserDos 2======================================="
     String jobName = "utiles"
     String userName = "user-mant"  
     PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE] 
