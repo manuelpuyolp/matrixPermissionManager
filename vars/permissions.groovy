@@ -11,8 +11,11 @@ def call() {
 
 
 def addUserDos() {
-    println "========================addUser 2======================================="
-    
+    println "======================== addUserDos ======================================="
+    String jobName = "utiles"
+    String userName = "user-mant"  
+    PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE] 
+    add(jobName, userName, tags, false)
 }
 
 def addUser(String jobName, String userName, List<String> permsAsStrings) {
