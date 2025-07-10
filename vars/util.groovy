@@ -19,7 +19,7 @@ String userCredPath = "${logInCredPath}/user.txt"
 String passwordCredPath = "${logInCredPath}/pass.txt"
 
 def updateJobConfig(String jobName, String newFileText) {
-    println "======================== updateJobConfig 1 ======================================="
+    println "======================== updateJobConfig 1 (2)======================================="
     def user = getUser()
     def password = getPassword()
     def download_Path = downloadPath
