@@ -14,10 +14,7 @@ def addUserDos() {
     println "======================== addUserDos======================================="
     String jobName = "utiles"
     String userName = "user-mant"  
-    PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE, PermissionTags.JOB_BUILD, PermissionTags.JOB_CANCEL, 
-    PermissionTags.JOB_CONFIGURE, PermissionTags.JOB_DELETE, PermissionTags.JOB_CREATE, PermissionTags.RUN_UPDATE, PermissionTags.RUN_DELETE, PermissionTags.VIEW_READ, 
-    PermissionTags.VIEW_DELETE, PermissionTags.VIEW_CREATE, PermissionTags.VIEW_CONFIGURE, PermissionTags.CREDENTIALS_CREATE, PermissionTags.CREDENTIALS_DELETE, 
-    PermissionTags.CREDENTIALS_UPDATE, PermissionTags.CREDENTIALS_VIEW, PermissionTags.CREDENTIALS_MANAGEDOMAIN, PermissionTags.SCM_TAG] 
+    PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE] 
     boolean isGroup = false
     add(jobName, userName, tags, isGroup)
 }
