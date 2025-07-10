@@ -112,7 +112,9 @@ public class PermisionsModifier implements Serializable{
         return null
     }
 
+    /*
     static def getPermissionNode(def root) {
+        println "======================== getPermissionNode 1 ======================================="
         def parentNode = root.children().find{ it.name() == 'properties' }
         def permissionNode = parentNode.children().find{it.name() == 'hudson.security.AuthorizationMatrixProperty'}
         if (permissionNode == null) {
@@ -120,6 +122,43 @@ public class PermisionsModifier implements Serializable{
         }
         return permissionNode;
     }
+    */
+
+    static def getPermissionNode(def root) {
+        println "======================== getPermissionNode 1 ======================================="
+        // Buscar el nodo <properties>
+        def parentNode = root.children().find { it.name() == 'properties' }
+
+        println "======================== getPermissionNode 2 ======================================="
+        // Si no existe, créalo
+        if (!parentNode) {
+            parentNode = new Node(root, 'properties')
+        }
+
+        println "======================== getPermissionNode 3 ======================================="
+        // Buscar el nodo de permisos (según sea job o folder)
+        def permissionNode = parentNode.children().find {
+            it.name() in [
+                'hudson.security.AuthorizationMatrixProperty',
+                'com.cloudbees.hudson.plugins.folder.properties.AuthorizationMatrixProperty'
+            ]
+        }
+
+        println "======================== getPermissionNode 4 ======================================="
+        // Si no existe, créalo
+        if (!permissionNode) {
+            def isFolder = root.name() == 'com.cloudbees.hudson.plugins.folder.Folder'
+            def propertyName = isFolder ?
+                'com.cloudbees.hudson.plugins.folder.properties.AuthorizationMatrixProperty' :
+                'hudson.security.AuthorizationMatrixProperty'
+
+            permissionNode = new Node(parentNode, propertyName)
+        
+        println "======================== getPermissionNode 5 ======================================="
+    }
+
+    return permissionNode
+}
 
     static def removePermission(def root, def user, PermissionTags permission) {
         def permissionNode = getPermissionNode(root)
