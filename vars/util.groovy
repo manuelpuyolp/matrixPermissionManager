@@ -19,17 +19,36 @@ String userCredPath = "${logInCredPath}/user.txt"
 String passwordCredPath = "${logInCredPath}/pass.txt"
 
 def updateJobConfig(String jobName, String newFileText) {
+    println "======================== updateJobConfig 1 ======================================="
     def user = getUser()
     def password = getPassword()
     def download_Path = downloadPath
     def file_Name = "config.xml"
     def full_File_Path = "${download_Path}/${file_Name}"
 
+    println "======================== updateJobConfig 2 ======================================="
+
     File newFile = new File("${full_File_Path}")
     newFile.write("${newFileText}")
-    def crumb = getCrumb(user, password, download_Path);
+    def crumb = getCrumb(user, password, download_Path)
+
+    println "======================== updateJobConfig 3 ======================================="
+
+
     def correctPath = URLhandler.getRegularJobString(jobName)
+
+    println "======================== updateJobConfig 4 ======================================="
     def url = "${JENKINS_URL}${correctPath}config.xml"
+    println "======================== updateJobConfig 5 ======================================="
+    println "URL: ${url}"
+    println "User: ${user}"
+    println "Password: ${password}"
+    println "Crumb: ${crumb}"
+    println "Full File Path: ${full_File_Path}"
+    println "======================== updateJobConfig 6 ======================================="    
+    println "Executing curl command to update job config"
+    println "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
+    println "======================== updateJobConfig 7 ======================================="    
     sh "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
 }
 
