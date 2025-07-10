@@ -54,7 +54,7 @@ def updateJobConfig(String jobName, String newFileText) {
     // sh "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
     //sh """curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H "Content-Type: application/xml" "${url}" -H "Jenkins-Crumb: ${crumb}" """
 
-    aux = "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H Content-Type: application/xml '${url}' -H \'Jenkins-Crumb: ${crumb}\' "
+    aux = "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:113cc3a3e49437a59cd4c9d72ffe90d115 -H Content-Type: application/xml '${url}' -H \'Jenkins-Crumb: ${crumb}\' "
     //sh "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H Content-Type: application/xml '${url}' -H \'Jenkins-Crumb: ${crumb}\' "
     sh "${aux}"
     println "======================== updateJobConfig 8 ======================================="
