@@ -158,6 +158,7 @@ public class PermisionsModifier implements Serializable{
         println "======================== getPermissionNode 5 ======================================="
     }
 
+    println "permissionNode: ${permissionNode}"
     return permissionNode
 }
 
