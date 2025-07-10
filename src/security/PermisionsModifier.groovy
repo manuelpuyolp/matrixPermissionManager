@@ -2,6 +2,7 @@ package security
 
 import security.XMLmanipulation
 import groovy.xml.*
+import groovy.util.Node
 
 public class PermisionsModifier implements Serializable{
 
