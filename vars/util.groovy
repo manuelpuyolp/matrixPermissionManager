@@ -50,6 +50,8 @@ def updateJobConfig(String jobName, String newFileText) {
     println "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
     println "======================== updateJobConfig 7 ======================================="    
     sh "curl -v -X POST --data-binary @${full_File_Path} -u ${user}:${password} -H 'Content-Type: application/xml'  \"${url}\" -H 'Jenkins-Crumb: ${crumb}'"
+    println "======================== updateJobConfig 8 ======================================="
+    println "Job config updated successfully"
 }
 
 def downloadFile(String user, String password, String jobName, String download_Path, String full_File_Path) {
