@@ -31,11 +31,11 @@ def addUser(String jobName, String userName, List<String> permsAsStrings) {
 
 // This method is called via the wrapper methods "addUser" and "addGroup" that perform extremelly similar purposes
 def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean isGroup) {
-    println "======================== add ======================================="
+    println "======================== add 1 ======================================="
     def fileContent = util.getJobConfig(jobName)
-    println "======================== add 1======================================="
+    println "======================== add 2 ======================================="
     def result = PermisionsModifier.addPermissions(fileContent, user_to_modify, tags, isGroup);
-    println "======================== add 2======================================="
+    println "======================== add 3 ======================================="
     util.updateJobConfig(jobName, result)
 }
 

@@ -6,8 +6,12 @@ import groovy.xml.*
 public class PermisionsModifier implements Serializable{
 
     static def addPermissions(String text, String user, PermissionTags[] permisions, boolean isGroup) {
+        println "======================== addPermissions 1 ======================================="
         def parser = new XmlParser(true, true, true)
+        println "======================== addPermissions 2 ======================================="
+        // Parse the XML text into a Node object    
         def project = parser.parseText(text);
+        println "======================== addPermissions 3 ======================================="
 
         for (PermissionTags permisionTag in permisions) {
             addPermission(project, user, permisionTag, isGroup)
