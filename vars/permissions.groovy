@@ -14,7 +14,7 @@ def addUserDos() {
     println "======================== addUserDos======================================="
     String jobName = "utiles"
     String userName = "user-mant"  
-    PermissionTags[] tags = [PermissionTags.JOB_READ, PermissionTags.JOB_WORKSPACE] 
+    PermissionTags[] tags = [PermissionTags.JOB_READ] 
     boolean isGroup = false
     add(jobName, userName, tags, isGroup)
 }
