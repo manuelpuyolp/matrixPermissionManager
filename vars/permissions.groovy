@@ -34,6 +34,12 @@ def add(String jobName, String user_to_modify, PermissionTags[] tags, boolean is
     println "======================== add 1 ======================================="
     def fileContent = util.getJobConfig(jobName)
     println "======================== add 2 ======================================="
+    
+    println "fileContent: ${fileContent}"
+    println "user_to_modify: ${user_to_modify}"
+    println "tags: ${tags}"
+    println "isGroup: ${isGroup}"
+
     def result = PermisionsModifier.addPermissions(fileContent, user_to_modify, tags, isGroup);
     println "======================== add 3 ======================================="
     util.updateJobConfig(jobName, result)
