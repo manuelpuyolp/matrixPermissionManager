@@ -11,7 +11,7 @@ def call() {
 
 
 def addUserDos() {
-    println "======================== addUserDos======================================="
+    println "======================================= addUserDos ======================================="
     String jobName = "utiles"
     String userName = "user-mant"  
     PermissionTags[] tags = [PermissionTags.JOB_READ] 
@@ -19,8 +19,8 @@ def addUserDos() {
     add(jobName, userName, tags, isGroup)
 }
 
-def addUsertres(String jobName, String user){
-    println "======================== addUserDos======================================="
+def addUsertres(String jobName, String userName){
+    println "======================================= addUserTres ======================================="
     PermissionTags[] tags = [PermissionTags.JOB_READ] 
     boolean isGroup = false
     add(jobName, userName, tags, isGroup)
