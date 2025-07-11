@@ -28,6 +28,17 @@ def addUsertres(String jobName, String userName){
     add(jobName, userName, tags, isGroup)
 }
 
+def addUserCuatro(String jobName, String userName, List<String> permsAsStrings) {
+    println "========================addUsercuatro 1======================================="
+    // convierte cada string al enum
+    PermissionTags[] tags = permsAsStrings.collect { full ->
+        def name = full.split('\\.')[-1]
+        PermissionTags.valueOf(name)
+    } as PermissionTags[]
+    // reutiliza tu método existente
+    add(jobName, userName, tags, false)
+}
+
 
 def addUser(String jobName, String userName, List<String> permsAsStrings) {
     println "========================addUser 1======================================="
