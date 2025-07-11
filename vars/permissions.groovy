@@ -19,6 +19,14 @@ def addUserDos() {
     add(jobName, userName, tags, isGroup)
 }
 
+def addUsertres(String jobName, String user)
+    println "======================== addUserDos======================================="
+    PermissionTags[] tags = [PermissionTags.JOB_READ] 
+    boolean isGroup = false
+    add(jobName, userName, tags, isGroup)
+}
+
+
 def addUser(String jobName, String userName, List<String> permsAsStrings) {
     println "========================addUser 1======================================="
     // convierte cada string al enum
