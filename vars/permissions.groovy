@@ -19,7 +19,7 @@ def addUserDos() {
     add(jobName, userName, tags, isGroup)
 }
 
-def addUsertres(String jobName, String user)
+def addUsertres(String jobName, String user){
     println "======================== addUserDos======================================="
     PermissionTags[] tags = [PermissionTags.JOB_READ] 
     boolean isGroup = false
