@@ -21,6 +21,8 @@ def addUserDos() {
 
 def addUsertres(String jobName, String userName){
     println "======================================= addUserTres ======================================="
+    println "jobName: ${jobName}"
+    println "userName: ${userName}"
     PermissionTags[] tags = [PermissionTags.JOB_READ] 
     boolean isGroup = false
     add(jobName, userName, tags, isGroup)
